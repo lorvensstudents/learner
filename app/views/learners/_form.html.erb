@@ -1,0 +1,37 @@
+<%= form_with(model: learner, local: true) do |form| %>
+  <% if learner.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(learner.errors.count, "error") %> prohibited this learner from being saved:</h2>
+
+      <ul>
+      <% learner.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :learner_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :technology %>
+    <%= form.text_field :technology, id: :learner_technology %>
+  </div>
+
+  <div class="field">
+    <%= form.label :duration %>
+    <%= form.text_field :duration, id: :learner_duration %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fee %>
+    <%= form.number_field :fee, id: :learner_fee %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
